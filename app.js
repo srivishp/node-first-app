@@ -5,10 +5,19 @@ const http = require("http");
 
 // Request listener function
 const rqListener = (req, res) => {
-  console.log(req);
+  console.log(req.url, req.method, req.headers);
   // Quits the server if no events are registered
-  //? But we do not use this, because users will not be able to reach our webpage
   // process.exit();
+  //? But we do not use this, because users will not be able to reach our webpage
+
+  //Sending a response
+  res.setHeader("Content-Type", "text/html");
+  // noob way of sending html content
+  res.write(
+    "<html><head><title>My First Page</title></head><body>Hello from my first Node.js Server!</body></html>"
+  );
+  // After res.end(), we should not write anything or it will give an error
+  res.end();
 };
 
 // referencing rqListener
