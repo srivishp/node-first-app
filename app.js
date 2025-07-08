@@ -2,6 +2,7 @@
 
 // "./http" looks for a local file. Only "http" looks for a global module
 const http = require("http");
+const fs = require("fs");
 
 // Request listener function
 const rqListener = (req, res) => {
@@ -29,14 +30,18 @@ const rqListener = (req, res) => {
   }
 
   if (url === "/message" && method === "POST") {
+    fs.writeFileSync("message.txt", "DUMMY");
+    res.statusCode = "302";
+    res.setHeader("Location", "/");
+    return res.end();
+
     //Sending a response
     res.setHeader("Content-Type", "text/html");
-    // noob way of sending html content
+
     res.write("<html>");
     res.write("<head><title>My First Page</title></head>");
     res.write("<body>Hello from my first Node.js Server!</body>");
     res.write("</html>");
-    // After res.end(), we should not write anything or it will give an error
     return res.end();
   }
 };
