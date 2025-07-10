@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "_comment": "Adding a start script so that we can run the node server using the 'npm start' command",
-    "start": "node app.js",
-    "_comment": "We can also add a start-server script but then we need to run the node server using the 'npm run start-server' command",
+    "_comment1": "Adding a start script so that we can run the node server using the 'npm start' command. With the help of nodemon, the server auto-restarts everytime we make a change & save the file.",
+    "start": "nodemon app.js",
+    "_comment2": "We can also add a start-server script but then we need to run the node server using the 'npm run start-server' command",
     "start-server": "node app.js"
   },
   "repository": {
@@ -20,5 +20,8 @@
     "url": "https://github.com/srivishp/node-first-app/issues"
   },
   "homepage": "https://github.com/srivishp/node-first-app#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }
